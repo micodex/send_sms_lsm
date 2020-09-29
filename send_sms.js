@@ -1,7 +1,7 @@
 "use strict"
 
 const http = require("http");
-const url = require('url');
+const url = require("url");
 const got = require("got");
 // const log4js = require('log4js');
 
@@ -11,7 +11,7 @@ const got = require("got");
 // });
 // var logger = log4js.getLogger();
 
-const APP_HOST = process.env.APP_HOST || "127.0.0.1";
+const APP_HOST = process.env.APP_HOST || "0.0.0.0";
 const APP_PORT = process.env.APP_PORT || 3000;
 const SMS_URL = process.env.SMS_URL || "http://sms-api.luosimao.com/v1/send.json";
 const SMS_KEY = process.env.SMS_KEY || "";
@@ -48,9 +48,13 @@ const processor = (req, resp) => {
             });
             // logger.info(query_params.code+' '+JSON.stringify(response.body));
             console.log(query_params.code+' '+JSON.stringify(response.body));
+            resp.writeHead(200, {'Content-Type': 'text/plain'});
+            resp.end();
         } catch (error) {
             // logger.info(query_params.code+' '+error.response.body);
             console.log(query_params.code+' '+error.response.body);
+            resp.writeHead(400, {'Content-Type': 'text/plain'});
+            resp.end();
 	}})();
 }
 
