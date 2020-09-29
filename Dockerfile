@@ -1,4 +1,4 @@
-FROM node:10.22.0-alpine
+FROM node:14.11.0-alpine3.11
 
 RUN mkdir -p /var/www/send_sms
 
