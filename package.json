@@ -1,0 +1,16 @@
+{
+  "name": "send_sms_lsm",
+  "version": "1.0.0",
+  "description": "",
+  "main": "send_sms.js",
+  "scripts": {
+    "start": "node send_sms.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "got": "^11.7.0"
+  }
+}
